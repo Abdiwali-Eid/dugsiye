@@ -2,25 +2,21 @@
 $("#from").attr("disabled",true);
 $("#to").attr("disabled",true);
 
-
 $("#type").on("change",function(){
-    
-    if($("#type").val() == 0){
+
+    if($("#type").val()==0){
         $("#from").attr("disabled",true);
         $("#to").attr("disabled",true);
     }else{
         $("#from").attr("disabled",false);
         $("#to").attr("disabled",false);
     }
-
-
 });
-
 
 $("#print_statement").on("click",function(){
+
     printStatement();
 });
-
 
 function printStatement(){
 
@@ -50,19 +46,21 @@ function printStatement(){
     th , td {
         padding:15px !important;
         text-align:left !important;
+        background-color : #04AA6D !important;
+
 
     }
 
     th , td {
         border-bottom : 1px solid #ddd !important;
-
+        
     }
 
     </style>`)
 
     newWindow.document.write(`</head><body>`);
-    // newWindow.document.write(``)
-
+    // newWindow.document.write('<img src="../png.png" style="width:100px; height:100px; margin-left:40%; margin-top:20px;"/>');
+ 
 
 
     newWindow.document.write(printArea.innerHTML);
@@ -75,7 +73,6 @@ function printStatement(){
 
 }
 
-
 $('#export_statement').on('click', function() {
     let file = new Blob([$('#print_area').html()], {type:"application/vnd.ms-excel"});
     let url = URL.createObjectURL(file);
@@ -85,10 +82,7 @@ $('#export_statement').on('click', function() {
       e.preventDefault();
 });
 
-
-
-
-$("#userForm").on("submit",function(event) {
+$("#userform").on("submit",function(event) {
 
     event.preventDefault();
 
@@ -235,6 +229,4 @@ function loadData(){
     })
 
 }
-
-
 
